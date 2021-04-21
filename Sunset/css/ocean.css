@@ -1,0 +1,186 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+}
+
+#frame-root{
+    width: 100vw;
+    height: 56.25vw;
+    position: relative;
+}
+
+#background{
+    position: absolute;
+    left: -5vw;
+    top: -15vh;
+    width: 110%;
+    height: 120%;
+    background: linear-gradient(0deg, #006281 0%,#4B6B80 50%,#CE9462 80%, #944D34 100%);
+    animation: fundo_sol_move 30s infinite alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes fundo_sol_move {
+    0%{
+        transform: rotate(-8deg);
+    }
+    25%{
+        transform: rotate(-3deg);
+
+    }
+    50%{
+        transform: rotate(0deg);
+
+    }
+    75%{
+        transform: rotate(3deg);
+
+    }
+    100%{
+        transform: rotate(8deg);
+
+    }
+}
+#frame-sol{
+    position: absolute;
+    top: 62vh;
+    left: -14vw;
+    width: 15vw;
+    height: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background: radial-gradient(circle, #f2d2d2,#fea200);
+    box-shadow: 0 0 100px #f2f2f2;
+    animation: sol_move 30s infinite alternate;
+    animation-timing-function: linear;
+}
+@keyframes sol_move {
+    0%{
+        top: 30vh;
+        left: -20vw;
+    }
+    25%{
+        top: 5vh;
+        left: 30vh;
+    }
+    40%{
+        top: -10vh;
+        left: 60vh;
+    }
+    60%{
+        top: -15vh;
+        left: 100vh;
+    }
+    75%{
+        top: 5vh;
+        left: 130vh;
+    }
+    100%{
+        top: 30vh;
+        left: 180vh;
+    }
+}
+
+#sol{
+    background-image: radial-gradient(farthest-corner at 30px 45px , #FE6200 10%,#FE8400 40%, #FFb20E 100%);
+    opacity: 0.8;
+    width: 97%;
+    height: 97%;
+    border-radius: 100%;
+    animation: sol_chamas;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+}
+@keyframes sol_chamas {
+    from {
+        opacity: 0.1;
+    }
+    to {
+        opacity: 0.6;
+    }
+}
+#frame-oceano{
+    position: absolute;
+    width: 100%;
+    height: 22vw;
+    bottom: 0;    
+}
+@keyframes ondas {
+    0% {
+        background: linear-gradient(160deg,#046Fa7 0%,#0199D4 33%,#0199D4 66%,#0199D4 100%);
+        height: 80%;
+    }
+    25% {
+        background: linear-gradient(160deg,#0199D4 0%,#046Fa7 33%,#0199D4 66%,#0199D4 100%);
+        height: 82%;
+        border-radius: 0 10% 0 0;
+    }
+    50% {
+        background: linear-gradient(160deg,#0199D4 0%,#0199D4 33%,#046Fa7 66%,#0199D4 100%);
+        height: 84%;
+        border-radius: 0 15% 0 0;
+    }
+    75% {
+        background: linear-gradient(160deg,#0199D4 0%,#0199D4 33%,#0199D4 66%,#046Fa7 100%);
+        height: 82%;
+        border-radius: 0 10% 0 0;
+    }
+    100% {
+        background: linear-gradient(160deg,#046Fa7 0%,#0199D4 33%,#0199D4 66%,#0199D4 100%);
+        height: 80%;
+    }
+}
+#frame-mar-ilha{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#frame-ondas{
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    bottom: 0px;
+    animation: ondas 4s infinite forwards;
+    animation-timing-function: ease;
+}
+#frame-ilha{
+    position: absolute;
+    width: 24vw;
+    height: 20vw;
+    right: -10vw;
+    bottom: 0;
+    border-radius: 80% 0 0 0;
+    background-color: #CE9462;
+}
+#frame-ilha2{
+    position: absolute;
+    width: 30vw;
+    height: 18vw;
+    right: -10vw;
+    bottom: 0;
+    border-radius: 80% 0 0 0;
+    background-color: #CE9462;
+}
+#frame-ilha3{
+    position: absolute;
+    width: 42vw;
+    height: 14vw;
+    right: -10vw;
+    bottom: 0;
+    border-radius: 80% 0 0 0;
+    background-color: #CE9462;
+}
+#frame-ilha4{
+    position: absolute;
+    width: 50vw;
+    height: 8vw;
+    right: -10vw;
+    bottom: 0;
+    border-radius: 80% 0 0 0;
+    background-color: #CE9462;
+}
