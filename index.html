@@ -2,10 +2,64 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://rafarbop.github.io/AnimaCSS/Sunset/index_sunset.html">
-    <title>Redirecionando...</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="0;url=https://rafarbop.github.io/AnimaCSS/Sunset/index_sunset.html"> -->
+    <title>Animando com CSS</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            font-family: Ubuntu, sans-serif;
+            background-image: linear-gradient(120deg, hsl(269, 85%, 43%) 0%, hsl(218, 97%, 57%) 100%);
+        }
+        #section{
+            padding: 4vh 2vw 2vh;
+            height: 94vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: hsl(269, 100%, 90%);
+            text-shadow: 0 0 5px hsl(266, 85%, 23%);
+        }
+        #listAnimation{
+            text-align: center;
+        }
+        #listAnimation p{
+            font-size: 1.4rem;
+            height: 8vh;
+            margin: 0;
+            line-height: 1.4;                             
+        }
+        #listAnimation p:hover{
+            font-size: 1.6rem;
+        }
+        #listAnimation a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+    </style>
 </head>
 <body>
-    
+    <section id="section"> 
+        <h1>
+            Animações e Efeitos com CSS
+        </h1>
+        
+        <section id="listAnimation">
+            <p>
+                <a href="./Sunset/sunset.html">Sunset</a>
+            </p>
+            <p>
+                <a href="./Portfolio/Entrada/portfolio_index.html">Portfolio - Entrada</a>
+            </p>
+        </section>
+
+        <footer>Rafa - 2021</footer>
+    </section>
 </body>
 </html>
