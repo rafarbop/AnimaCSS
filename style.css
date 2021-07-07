@@ -1,0 +1,75 @@
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+    background-image: linear-gradient(120deg, hsl(269, 85%, 43%) 0%, hsl(218, 97%, 57%) 100%);
+}
+#section{
+    padding: 4vh 2vw 2vh;
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: hsl(269, 100%, 90%);
+    text-shadow: 0 0 5px hsl(266, 85%, 23%);
+}
+#draw-header{
+    position: relative;
+    height: 20vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+}
+#elipse{
+    box-sizing: border-box;
+    border: 2px solid blue;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(120deg, hsl(18, 85%, 63%) 0%, hsl(210, 85%, 28%) 100%);
+    z-index: -5;
+    border-radius: 50% 100%;
+    transform: skew(20deg);
+    transition: border-radius 1s;
+}
+#draw-header:hover #elipse{
+    border-radius: 100% 50%;
+    transform: skew(-20deg);
+}
+
+
+
+#listAnimation{
+    text-align: center;
+}
+#listAnimation p{
+    font-size: 1.4rem;
+    height: 8vh;
+    margin: 0;
+    line-height: 1.4;                             
+}
+#listAnimation p:hover{
+    font-size: 1.6rem;
+}
+#listAnimation a{
+    text-decoration: none;
+    color: inherit;
+}
+.sun , .portfolio{
+    margin-right: 0.3rem;
+}
+#listAnimation p:hover .sun{
+    color: hsl(37, 91%, 51%);
+}
+#listAnimation p:hover .portfolio{
+    color: hsl(160, 65%, 40%);
+}
