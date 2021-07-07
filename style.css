@@ -14,8 +14,33 @@ body{
     justify-content: space-between;
     align-items: center;
     color: hsl(269, 100%, 90%);
-    text-shadow: 0 0 5px hsl(266, 85%, 23%);
+    text-shadow: 0 0 5px hsl(269, 85%, 23%);
 }
+#preloader{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(269, 45%, 33%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: hsl(218, 97%, 80%);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+.iconload{
+    color: hsl(218, 97%, 50%);
+    font-size: 2rem;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}
+
+
 #draw-header{
     position: relative;
     height: 20vh;
@@ -23,11 +48,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
 }
 #elipse{
     box-sizing: border-box;
-    border: 2px solid blue;
+    border: 2px solid hsl(218, 25%, 28%);
     margin: 0;
     padding: 0;
     position: absolute;
@@ -35,15 +59,21 @@ body{
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(120deg, hsl(18, 85%, 63%) 0%, hsl(210, 85%, 28%) 100%);
+    background: linear-gradient(120deg, hsl(269, 85%, 63%) 0%, hsl(218, 85%, 28%) 100%);
     z-index: -5;
-    border-radius: 50% 100%;
-    transform: skew(20deg);
-    transition: border-radius 1s;
+    animation: moveit-elipse 3s ease-in-out 0.5s infinite alternate;
 }
-#draw-header:hover #elipse{
-    border-radius: 100% 50%;
-    transform: skew(-20deg);
+@keyframes moveit-elipse {
+    from {
+        border-radius: 25% 100%;
+        transform: skewX(10deg);
+        transform: skewY(-1deg);
+    }
+    to {
+        border-radius: 100% 25%;
+        transform: skewX(-10deg);
+        transform: skewY(-1deg);
+    }
 }
 
 

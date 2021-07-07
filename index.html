@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="./icons/fontawesome/css/all.css">
 </head>
 <body>
+    <div id="preloader">
+        <p>
+            <i class="fas fa-spinner iconload" ></i>
+        </p>
+        <p>Loading</p>
+    </div>
     <section id="section"> 
         <div id="draw-header">
             <h1>
@@ -32,5 +38,13 @@
 
         <footer>Rafa <i class="fas fa-hand-spock"></i> 2021</footer>
     </section>
+    <script>
+        window.onload = () => {
+            setTimeout(hidePreloader, 800)
+        }
+        function hidePreloader(){
+            document.getElementById('preloader').style.display = "none"
+        }
+    </script>
 </body>
 </html>
