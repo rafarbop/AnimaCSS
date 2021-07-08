@@ -94,7 +94,7 @@ body{
     text-decoration: none;
     color: inherit;
 }
-.sun , .portfolio{
+.sun , .portfolio, .spock{
     margin-right: 0.3rem;
 }
 #listAnimation p:hover .sun{
@@ -102,4 +102,7 @@ body{
 }
 #listAnimation p:hover .portfolio{
     color: hsl(160, 65%, 40%);
+}
+footer:hover .spock{
+    color: hsl(210, 65%, 60%);
 }
