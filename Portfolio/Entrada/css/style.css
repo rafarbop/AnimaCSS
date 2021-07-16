@@ -52,10 +52,18 @@ section#container{
 
 section#container main{
     display: flex;
-    width: 40vw;
-    border: 0.2rem solid hsl(204, 71%, 39%);
+    width: 50vw;
+    height: 40vh;
+    box-shadow: 0 0 2vw hsl(204, 95%, 39%);
+    background-color: hsl(204, 71%, 50%);
     border-radius: 1rem;
     padding: 2vh 2vw;
     justify-content: space-between;
+    align-items: center;
     z-index: 10;
+}
+
+section#container main img{
+    height: 36vh;
+    border-radius: 50%;
 }
