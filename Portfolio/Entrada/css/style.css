@@ -64,6 +64,14 @@ section#container main{
 }
 
 section#container main img{
-    height: 36vh;
+    height: 180px;
     border-radius: 50%;
+}
+
+@media only screen and (max-width: 900px){
+    section#container main{
+        flex-direction: column;
+        width: 60vw;
+        height: 75vh;
+    }
 }
