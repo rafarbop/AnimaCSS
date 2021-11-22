@@ -27,15 +27,7 @@ document.getElementById("login_password").onfocus = (ev) => {
     document.getElementById("vendado").classList.add("vendado")
     document.querySelector("#boca>div").classList.add("boca-triste")
 }
-document.getElementById("login_password").onmouseenter = (ev) => {
-    document.getElementById("vendado").classList.add("vendado")
-    document.querySelector("#boca>div").classList.add("boca-triste")
-}
-document.getElementById("login_password").onmouseout = (ev) => {
-    document.getElementById("vendado").classList.remove("vendado")
-    document.querySelector("#boca>div").classList.remove("boca-triste")
-}
-document.getElementById("btn-entrar").onfocus = (ev) => {
+document.getElementById("login_password").onblur = (ev) => {
     document.getElementById("vendado").classList.remove("vendado")
     document.querySelector("#boca>div").classList.remove("boca-triste")
 }
