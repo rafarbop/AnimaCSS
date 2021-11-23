@@ -10,7 +10,7 @@
 
     <section class="vw-100 vh-100 bg-primary bg-opacity-50 d-flex flex-column align-items-center justify-content-center">
 
-        <h2>Erase Balls or Paint</h2>
+        <h2>Paint with Canvas</h2>
 
         <div class="d-flex">
             
@@ -23,18 +23,19 @@
             <div class="m-4 w-25 my-1 d-flex flex-column text-center">
                 <div class="m-2 d-flex align-items-center justify-content-center">
                     <span>Cor para pintar:</span> 
-                    <input class="mx-2" type="color" value="#3c78a0" name="color-canvas" id="inputcolor">
+                    <input class="mx-2 form-control form-control-color" type="color" value="#3c78a0" name="color-canvas" id="inputcolor">
                 </div>
                 <div class="m-2 d-flex flex-column align-items-center justify-content-center">
-                    <span>Tamanho do "Range" do Pincel:</span> 
+                    <span>"Alcance" do Pincel:</span> 
                     <input class="mx-2" type="range" value=30 min="5" max="55" name="range-canvas" id="inputrange">
                 </div>
                 <div class="text-body">
-                    <span>Para pintar, escolha uma cor e use o botão esquerdo do mouse</span>
-                    <span>Para apagar use o botão direito do mouse</span>
-                    <span>Para ajustar o tamanho do pincel de pintar e apagar, altere o "Range do Pincel"</span>
+                    <p>Para PINTAR, escolha uma cor, aperte a tecla "P" e movimente o mouse <br><span class="text-danger">Parar: Tecla Escape(Esc)</span><br></p>
+                    <p>Para APAGAR aperte a tecla "A" e movimente o mouse <br><span class="text-danger">Parar: Tecla Escape(Esc)</span><br></p>
+                    <p>Para ajustar o tamanho do pincel de pintar e apagar, altere o "Alcance" do Pincel</p>
                 </div>
-                <button id="resetCanvas" class="btn-outline-danger" type="button">Reiniciar</button>
+                <button id="resetCanvas" class="btn-outline-danger">Reiniciar</button>
+                <button id="savePNGCanvas" class="btn-primary">Salvar como PNG</button>
             </div>
 
         </div>
