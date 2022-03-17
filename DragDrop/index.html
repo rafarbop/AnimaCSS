@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Drag and Drop Objects</title>
+    <script src="https://cdn.plot.ly/plotly-2.8.3.min.js"></script>
+    <style>
+        :root{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: hsla(135, 75%, 50%,0.2);
+            margin: 0;
+        }
+        header h1{
+            text-align: center;
+            color: hsl(150, 60%, 15%);
+            user-select: none;
+        }
+        #canvas{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 2vh 2vw;
+        }
+        #wastebucket{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #wastebucket_circle{
+            margin: 9px;
+            background-color: hsl(150, 60%, 40%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #002266;
+            border: 5px dashed hsl(150, 60%, 20%);
+            outline: 10px solid hsl(150, 60%, 20%);
+            user-select: none;
+        }
+        #rect1, #rect2{
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            position: relative;
+        }
+        #addCircleRed,#addCircleBlue{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%,100%);
+            padding: 4px;
+            border: 2px solid #445599;
+            border-radius: 5px;
+            color: #002266;
+            background-color: #4499ff;
+            user-select: none;
+        }
+        .circleRed,.circleBlue{
+            margin: 10px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circleRed{
+            border: 3px solid hsl(10, 80%, 20%);
+            background-color: hsl(10, 80%, 50%);
+        }
+        .circleBlue{
+            border: 3px solid hsl(190, 80%, 20%);
+            background-color: hsl(190, 80%, 50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="container-all">
+        <header>
+            <h1>Drag an Drop with JavaScript</h1>
+        </header>
+        <div id="canvas">
+            <div id="rect1" style="width:400px;height:240px;background-color: hsl(15, 40%, 60%);">
+                <div id="addCircleRed">Adicionar</div>
+            </div>
+            <div id="rect2" style="width:400px;height:240px;background-color: hsl(200, 40%, 60%);">
+                <div id="addCircleBlue">Adicionar</div>
+            </div>
+        </div>
+        <div id="wastebucket">
+            <div id="wastebucket_circle"><span>Trash</span></div>
+        </div>
+
+    </div>
+
+    <script>
+
+        const addCircleRed = document.getElementById("addCircleRed")
+        const addCircleBlue = document.getElementById("addCircleBlue")
+        addCircleRed.onclick = () => {
+            if (document.querySelectorAll("#rect1 .circleRed").length +document.querySelectorAll("#rect1 .circleBlue").length < 15 ) {
+                const newCircleRed = document.createElement("div")
+                newCircleRed.classList.add("circleRed")
+                newCircleRed.draggable = true
+                newCircleRed.id = "CircleRed-"+document.querySelectorAll("#rect1 .circleRed").length
+                newCircleRed.ondragstart = (ev) => {
+                    ev.dataTransfer.setData("data",ev.target.id)
+                    document.getElementById("container-all").style.backgroundColor = "hsl(10, 80%, 80%)"
+                    console.log('Iniciado drag')
+                }
+                newCircleRed.ondragend = (ev) => {
+                    document.getElementById("container-all").style.backgroundColor = ""
+                }
+                document.getElementById("rect1").appendChild(newCircleRed)
+            }
+            else{
+                window.alert("Não é possível adicionar mais elementos! Capacidade máxima é 15!")
+            }
+        }
+        addCircleBlue.onclick = () => {
+            if (document.querySelectorAll("#rect2 .circleRed").length +document.querySelectorAll("#rect2 .circleBlue").length < 15 ) {
+                const newCircleBlue = document.createElement("div")
+                newCircleBlue.classList.add("circleBlue")
+                newCircleBlue.draggable = true
+                newCircleBlue.id = "CircleBlue-"+document.querySelectorAll("#rect2 .circleBlue").length
+                newCircleBlue.ondragstart = (ev) => {
+                    ev.dataTransfer.setData("data",ev.target.id)
+                    console.log('Iniciado drag')
+                }
+                document.getElementById("rect2").appendChild(newCircleBlue)
+            }
+            else{
+                window.alert("Não é possível adicionar mais elementos! Capacidade máxima é 15!")
+            }
+        }
+        
+        const rect1 = document.getElementById("rect1");
+        const rect2 = document.getElementById("rect2");
+        rect1.ondragover = (ev) => {
+            rect1.style.opacity = 1
+        }
+        rect1.ondrop = (ev) => {
+            if (document.querySelectorAll("#rect1 .circleRed").length +document.querySelectorAll("#rect1 .circleBlue").length < 15 ) {
+                ev.target.appendChild(document.getElementById(ev.dataTransfer.getData("data")))
+                console.log('Colando drop')
+            }
+            else{
+                window.alert("Não é possível adicionar mais elementos! Capacidade máxima é 15!")
+            }
+        }
+        rect2.ondrop = (ev) => {
+            if (document.querySelectorAll("#rect2 .circleRed").length +document.querySelectorAll("#rect2 .circleBlue").length < 15 ) {
+                ev.target.appendChild(document.getElementById(ev.dataTransfer.getData("data")))
+                console.log('Colando drop')
+            }
+            else{
+                window.alert("Não é possível adicionar mais elementos! Capacidade máxima é 15!")
+            }
+        }
+        rect1.ondragover = (ev) => {
+            ev.preventDefault()
+        }
+        rect2.ondragover = (ev) => {
+            ev.preventDefault()
+        }
+        document.getElementById("wastebucket").ondragover = (ev) => {
+            ev.preventDefault()
+        }
+        document.getElementById("wastebucket").ondrop = (ev) => {
+            document.getElementById(ev.dataTransfer.getData("data")).remove()
+        }
+
+    </script>
+</body>
+</html>
